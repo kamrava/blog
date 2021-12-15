@@ -91,7 +91,7 @@ export default {
   methods: {
       getComments({pagination}) {
         this.loading = true
-        Comment.all(`sort=${pagination.sortBy}%7C${pagination.descending ? 'desc' : 'asc'}&page=${pagination.page}&per_page=${pagination.rowsPerPage}`, ({data}) => {
+        Comment.all(`sort_by=${pagination.sortBy}&sort_type=${pagination.descending ? 'desc' : 'asc'}&page=${pagination.page}&per_page=${pagination.rowsPerPage}`, ({data}) => {
           this.comments = data
           this.loading = false
         }).catch(error => {

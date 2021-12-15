@@ -11,15 +11,8 @@ class CommentRepository {
      */
 	public function all(string $sort_name, $sort_type, $per_page)
 	{
-        // info('asda', [
-        //     'comments' => Comment::orderBy($sort_name, $sort_type)
-        //     ->withDepth()
-        //     ->with('ancestors')
-		// 	->paginate($per_page)
-        // ]);
 		return Comment::orderBy($sort_name, $sort_type)
             ->withDepth()
-            ->with('ancestors')
 			->get()
             ->toFlatTree();
 	}
